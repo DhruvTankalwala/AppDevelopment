@@ -63,7 +63,8 @@
         android:layout_height="200dp"
 
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="107dp" >
+        tools:layout_editor_absoluteY="107dp"
+        tools:ignore="MissingConstraints">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/banner_viewPager"

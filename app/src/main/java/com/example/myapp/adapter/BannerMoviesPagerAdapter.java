@@ -1,5 +1,6 @@
 package com.example.myapp.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.bumptech.glide.Glide;
 import com.example.myapp.R;
 import com.example.myapp.model.BannerMovies;
+
+import java.util.List;
 
 public class BannerMoviesPagerAdapter extends PagerAdapter {
     Context context ;
