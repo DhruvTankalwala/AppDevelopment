@@ -11,6 +11,7 @@ import com.example.myapp.adapter.BannerMoviesPagerAdapter;
 import com.example.myapp.adapter.MainRecyclerAdapter;
 import com.example.myapp.model.AllCategory;
 import com.example.myapp.model.BannerMovies;
+import com.example.myapp.model.CategoryItem;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -94,11 +95,54 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //
+        List<CategoryItem> homecatListItem1 =new  ArrayList<>();
+        homecatListItem1.add(new CategoryItem(1,"","",""));
+        homecatListItem1.add(new CategoryItem(2,"","",""));
+        homecatListItem1.add(new CategoryItem(3,"","",""));
+        homecatListItem1.add(new CategoryItem(4,"","",""));
+        homecatListItem1.add(new CategoryItem(5,"","",""));
+
+        //jem komecatlistitem1 banavi aem alag alag catogry mate banavani
+        List<CategoryItem> homecatListItem2 =new  ArrayList<>();
+
+        //movie in hindi
+        homecatListItem2.add(new CategoryItem(1,"","",""));
+        homecatListItem2.add(new CategoryItem(2,"","",""));
+        homecatListItem2.add(new CategoryItem(3,"","",""));
+        homecatListItem2.add(new CategoryItem(4,"","",""));
+        homecatListItem2.add(new CategoryItem(5,"","",""));
+
+
+
+
+        //kids and family movie
+        List<CategoryItem> homecatListItem3 =new  ArrayList<>();
+        homecatListItem3.add(new CategoryItem(1,"","",""));
+        homecatListItem3.add(new CategoryItem(2,"","",""));
+        homecatListItem3.add(new CategoryItem(3,"","",""));
+        homecatListItem3.add(new CategoryItem(4,"","",""));
+        homecatListItem3.add(new CategoryItem(5,"","",""));
+
+
+
+        //Amazon Original series
+        List<CategoryItem> homecatListItem4 =new  ArrayList<>();
+        homecatListItem4.add(new CategoryItem(1,"","",""));
+        homecatListItem4.add(new CategoryItem(2,"","",""));
+        homecatListItem4.add(new CategoryItem(3,"","",""));
+        homecatListItem4.add(new CategoryItem(4,"","",""));
+        homecatListItem4.add(new CategoryItem(5,"","",""));
+
+
 
         allCategoryList = new ArrayList<>();
-        allCategoryList.add(new AllCategory(1,"Bollywood"));
-        allCategoryList.add(new AllCategory(2,"Hollywood"));
-        allCategoryList.add(new AllCategory(3,"Kids"));
+        allCategoryList.add(new AllCategory(1,"Watch next Tv and movies",homecatListItem1));
+        allCategoryList.add(new AllCategory(2,"Movies in Hindi",homecatListItem2));
+
+        allCategoryList.add(new AllCategory(3,"Kids and family movies",homecatListItem3));
+        allCategoryList.add(new AllCategory(4,"Amazon Original series",homecatListItem4));
+
 
         setMainRecycler(allCategoryList);
 
