@@ -1,29 +1,28 @@
 package com.example.myapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-
 import com.bumptech.glide.Glide;
-import com.example.myapp.R;
-import com.example.myapp.model.BannerMovies;
-
 import java.util.List;
+import cf.arjun.dev.primevideoclone.MovieDetails;
+import cf.arjun.dev.primevideoclone.R;
+import cf.arjun.dev.primevideoclone.models.Movies;
 
 public class BannerMoviesPagerAdapter extends PagerAdapter {
-    Context context ;
 
-    public BannerMoviesPagerAdapter(Context context, List<BannerMovies> bannerMoviesList) {
+    Context context;
+    List<Movies> bannerMoviesList;
+
+    public BannerMoviesPagerAdapter(Context context, List<Movies> bannerMoviesList) {
         this.context = context;
         this.bannerMoviesList = bannerMoviesList;
     }
-
-    List<BannerMovies>bannerMoviesList;
 
     @Override
     public int getCount() {
@@ -37,18 +36,38 @@ public class BannerMoviesPagerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-       container.removeView((View) object);
+        container.removeView((View) object);
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.banner_movie_layout,null);
-        ImageView bannerImage = view.findViewById(R.id.banner_image);
-        //here i will use glibe library for fetching image from url and set it to image view
-        //lets add glide dependancy
-        Glide.with(context).load(bannerMoviesList.get(position).getImageUrl()).into(bannerImage);
+
+        // current object on the movie list.
+        Movies current = bannerMoviesList.get(position);
+
+
+        View view = LayoutInflater.from(container.getContext()).inflate(R.layout.banner_movie_layout, null);
+
+        // Finding and setting the image.
+        ImageView bannerImage = view.findViewById(R.id.bannerImage);
+        Glide.with(context).load(current.getImageUrl()).into(bannerImage);
+
+        // adding the view into the parentView.
         container.addView(view);
+
+        // on click listener on the banner image.
+        bannerImage.setOnClickListener( v -> {
+
+            Intent intent = new Intent(context, MovieDetails.class);
+            intent.putExtra("id", current.getId());
+            intent.putExtra("name", current.getMovieName());
+            intent.putExtra("imageUrl", current.getImageUrl());
+            intent.putExtra("fileUrl", current.getFileUrl());
+            context.startActivity(intent);
+
+        });
         return view;
+
     }
 }

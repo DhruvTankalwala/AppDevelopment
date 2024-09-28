@@ -1,16 +1,26 @@
 package com.example.myapp.model;
 
-public class BannerMovies {
+public class Movies {
+
+    Integer categoryId;
     Integer id;
     String movieName;
     String imageUrl;
     String fileUrl;
 
-    public BannerMovies(Integer id, String movieName, String imageUrl, String fileUrl) {
+    public Movies(Integer id, String movieName, String imageUrl, String fileUrl) {
         this.id = id;
         this.movieName = movieName;
         this.imageUrl = imageUrl;
         this.fileUrl = fileUrl;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     public Integer getId() {
