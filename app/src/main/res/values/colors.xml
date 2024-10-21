@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <color name="black">#000000</color>
-    <color name="primaryColor">#E50914</color>
     <color name="white">#FFFFFF</color>
-    <color name="darkGray">#2b2b2b</color>
 
+    <color name="backgroundPrimeVideo">#0F171E</color>
+    <color name="textGray">#9B9696</color>
+    <color name="textGray2">#C2C2C4</color>
+    <color name="textGray3">#595858</color>
+
+    <color name="playButton">#0288D1</color>
+    <color name="transparentBlack">#A6000000</color>
 
 </resources>
